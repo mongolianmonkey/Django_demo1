@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+ {% block content %}
+    <h1>About</h1>
+<p>This is a template</p>
+<p>
+    {{my_text|capfirst|title}},{{my_number}}
+    {{my_list}}
+<!--    capfirst is another filter which makes the first letter capital. we can also stack filters together-->
+<!--use safe filter to make sure everything is rendered as html code-->
+    <!--    context variable-->
+</p>
+
+<ul>
+    <li>
+Item1
+    </li>
+</ul>
+
+<ul>
+{% for abc in my_list %}
+    {% if abc == 123 %}
+    <li>{{forloop.counter}}-{{abc|add:22}}</li>
+{% else %}
+    <li>{{forloop.counter}}-{{abc}}</li>
+    {% endif%}
+{% endfor %}
+<!--    add is a template tag filter and we can use if, elif and else cases easily-->
+</ul>
+
+    {% endblock %}
